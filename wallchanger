@@ -1,0 +1,36 @@
+#!/bin/bash
+# Change wallpaper if needed when invoked
+
+LOGFILE=/var/log/HourlyWallpaper.log
+function log(){
+    echo $1
+    echo $(date "+%Y-%m-%d %Hh%M") $1 >> /home/gregnix/wallchanger.log  # Temporary test
+    echo $(date "+%Y-%m-%d %Hh%M") $1 >> $LOGFILE
+}
+
+# Read conf
+source $HOME/.config/HourlyWallpaper
+
+# Get hour of day
+h=$( date +%H )
+
+# Get path to image
+f="$PATH_TO_WALLPAPER_FOLDER"
+cmd="find $f -name "*$h*""
+
+if [ $( $cmd | wc -l ) != 0 ]
+then
+    p=$( $cmd | head -n 1)  # Get only first result
+else
+    # No file found
+    # Log failure and exit
+    log "Error: no file found in $PATH_TO_WALLPAPER_FOLDER for hour $h"
+    exit 1
+fi
+
+
+# Change wallpaper
+gsettings set org.gnome.desktop.background picture-uri "file:///$p"
+
+# Log success
+log "Successfully changed to wallpaper $p"

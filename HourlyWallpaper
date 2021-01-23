@@ -1,0 +1,5 @@
+# This is the HourlyWallpaper config file
+# Every variable assigned here will be passed to the script
+
+
+PATH_TO_WALLPAPER_FOLDER=$HOME/Pictures/HourlyWallpaper
