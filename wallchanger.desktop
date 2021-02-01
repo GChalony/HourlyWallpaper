@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec=/home/gregnix/.local/bin/wallchanger
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[en_US]=HourlyWallpaper
+Name=HourlyWallpaper
+Comment[en_US]=
+Comment=
