@@ -1,2 +1,2 @@
 # m h  dom mon dow   command
-0 * * * * gregnix /home/gregnix/.local/bin/wallchanger
+*/5 * * * * gregnix /home/gregnix/.local/bin/wallchanger
