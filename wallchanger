@@ -18,10 +18,15 @@ source $HOME/.config/HourlyWallpaper
 
 # Get hour of day
 h=$( date +%H )
+log "Hour: $h"
 
 # Get path to image
 f="$PATH_TO_WALLPAPER_FOLDER"
-cmd="find $f -name "*$h*""  # find relevant picture
+log "Path: $f ($( ls $f ))"
+
+cmd='find $f -name "*$h*"'  # find relevant picture
+
+log "Find: $cmd"
 
 if [ $( $cmd | wc -l ) != 0 ]
 then
