@@ -22,11 +22,14 @@ log "Hour: $h"
 
 # Get path to image
 f="$PATH_TO_WALLPAPER_FOLDER"
-log "Path: $f ($( ls $f ))"
+log "Path: $f ($( ls "$f" ))"
 
-cmd='find $f -name "*$h*"'  # find relevant picture
+set -f
+cmd="find $f -name  *$h*"  # find relevant picture
 
-log "Find: $cmd"
+log "Command: $cmd"
+log "Find: $( $cmd )"
+log $( $cmd | wc -l )
 
 if [ $( $cmd | wc -l ) != 0 ]
 then
